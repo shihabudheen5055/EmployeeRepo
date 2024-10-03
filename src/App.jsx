@@ -188,57 +188,60 @@ function App() {
           </div>
         </Col>
       </Row>
-
       <Modal show={showModal} onHide={() => setShowModal(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>Edit Employee</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form onSubmit={formik.handleSubmit}>
-            <Form.Group>
-              <Form.Label>Name</Form.Label>
-              <Form.Control
-                type="text"
-                name="name"
-                value={formik.values.name}
-                onChange={formik.handleChange}
-                disabled
-              />
-              {formik.errors.name ? (
-                <div className="text-danger">{formik.errors.name}</div>
-              ) : null}
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Job Title</Form.Label>
-              <Form.Control
-                type="text"
-                name="jobTitle"
-                value={formik.values.jobTitle}
-                onChange={formik.handleChange}
-              />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Email</Form.Label>
-              <Form.Control
-                type="email"
-                name="email"
-                value={formik.values.email}
-                onChange={formik.handleChange}
-              />
-            </Form.Group>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowModal(false)}>
-            Close
-          </Button>
-          <Button type="submit" variant="primary">
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
+  <Modal.Header closeButton>
+    <Modal.Title>Edit Employee</Modal.Title>
+  </Modal.Header>
+  <Modal.Body>
+    <Form onSubmit={formik.handleSubmit}>
+      <Form.Group>
+        <Form.Label>Name</Form.Label>
+        <Form.Control
+          type="text"
+          name="name"
+          value={formik.values.name}
+          onChange={formik.handleChange}
+          disabled
+        />
+        {formik.errors.name ? (
+          <div className="text-danger">{formik.errors.name}</div>
+        ) : null}
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Job Title</Form.Label>
+        <Form.Control
+          type="text"
+          name="jobTitle"
+          value={formik.values.jobTitle}
+          onChange={formik.handleChange}
+        />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Email</Form.Label>
+        <Form.Control
+          type="email"
+          name="email"
+          value={formik.values.email}
+          onChange={formik.handleChange}
+        />
+      </Form.Group>
+    </Form>
+  </Modal.Body>
+  <Modal.Footer>
+    <Button variant="secondary" onClick={() => setShowModal(false)}>
+      Close
+    </Button>
+    <Button
+      variant="primary"
+      onClick={formik.handleSubmit} // Explicitly trigger form submission
+    >
+      Save Changes
+    </Button>
+  </Modal.Footer>
+</Modal>
+
     </Container>
   );
 }
 
-export default App;
+export default App; 
