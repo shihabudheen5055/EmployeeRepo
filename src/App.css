@@ -133,3 +133,8 @@ h1 {
 .ml-2 {
   margin-left: 10px;
 }
+.modal-dialog {
+  max-width: 90%;
+  margin: 1.75rem auto;
+}
+

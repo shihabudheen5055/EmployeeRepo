@@ -107,87 +107,95 @@ function App() {
 
       <Row className="my-4">
         <Col className="d-flex justify-content-center">
-          <Form onSubmit={formik.handleSubmit}>
-            <Row>
-              <Col>
-                <Form.Group>
-                  <Form.Control
-                    type="text"
-                    name="name"
-                    placeholder="Name"
-                    value={formik.values.name}
-                    onChange={formik.handleChange}
-                    className="input-field"
-                  />
-                  {formik.errors.name ? (
-                    <div className="text-danger">{formik.errors.name}</div>
-                  ) : null}
-                </Form.Group>
-              </Col>
-              <Col>
-                <Form.Control
-                  type="text"
-                  name="jobTitle"
-                  placeholder="Job Title"
-                  value={formik.values.jobTitle}
-                  onChange={formik.handleChange}
-                  className="input-field"
-                />
-              </Col>
-              <Col>
-                <Form.Control
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  value={formik.values.email}
-                  onChange={formik.handleChange}
-                  className="input-field"
-                />
-              </Col>
-              <Col>
-                <Button type="submit" variant="primary" className="add-button">
-                  {currentEmployee ? "Update Employee" : "Add Employee"}
-                </Button>
-              </Col>
-            </Row>
-          </Form>
+        <Form onSubmit={formik.handleSubmit}>
+  <Row>
+    <Col xs={12} sm={4}>
+      <Form.Group>
+        <Form.Control
+          type="text"
+          name="name"
+          placeholder="Name"
+          value={formik.values.name}
+          onChange={formik.handleChange}
+          className="input-field"
+        />
+        {formik.errors.name ? (
+          <div className="text-danger">{formik.errors.name}</div>
+        ) : null}
+      </Form.Group>
+    </Col>
+    <Col xs={12} sm={4}>
+      <Form.Control
+        type="text"
+        name="jobTitle"
+        placeholder="Job Title"
+        value={formik.values.jobTitle}
+        onChange={formik.handleChange}
+        className="input-field"
+      />
+    </Col>
+    <Col xs={12} sm={4}>
+      <Form.Control
+        type="email"
+        name="email"
+        placeholder="Email"
+        value={formik.values.email}
+        onChange={formik.handleChange}
+        className="input-field"
+      />
+    </Col>
+    <Col xs={12} className="d-flex justify-content-center">
+      <Button type="submit" variant="primary" className="add-button">
+        {currentEmployee ? "Update Employee" : "Add Employee"}
+      </Button>
+    </Col>
+  </Row>
+</Form>
+
         </Col>
       </Row>
 
       <Row>
-        <Col>
-          <div className="employee-list-box">
-            <ul className="list-group employee-list">
-              {filteredEmployees.map((employee) => (
-                <li key={employee.id} className="list-group-item employee-box">
-                  <Row>
-                    <Col>{employee.name}</Col>
-                    <Col>{employee.jobTitle}</Col>
-                    <Col>{employee.email}</Col>
-                    <Col>
-                      <div className="d-flex justify-content-end">
-                        <Button
-                          variant="warning"
-                          onClick={() => openEditModal(employee)}
-                          className="mr-2"
-                        >
-                          Edit
-                        </Button>
-                        <Button
-                          variant="danger"
-                          onClick={() => deleteEmployee(employee.id)}
-                        >
-                          Delete
-                        </Button>
-                      </div>
-                    </Col>
-                  </Row>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Col>
+  <Col>
+    <div className="employee-list-box">
+      <Row className="employee-header">
+        <Col xs={12} sm={3}><strong>Name</strong></Col>
+        <Col xs={12} sm={3}><strong>Job Title</strong></Col>
+        <Col xs={12} sm={3}><strong>Email</strong></Col>
+        <Col xs={12} sm={3} className="text-right"><strong>Actions</strong></Col>
       </Row>
+      <ul className="list-group employee-list">
+        {filteredEmployees.map((employee) => (
+          <li key={employee.id} className="list-group-item employee-box">
+            <Row>
+              <Col xs={12} sm={3}>{employee.name}</Col>
+              <Col xs={12} sm={3}>{employee.jobTitle}</Col>
+              <Col xs={12} sm={3}>{employee.email}</Col>
+              <Col xs={12} sm={3}>
+                <div className="d-flex justify-content-end">
+                  <Button
+                    variant="warning"
+                    onClick={() => openEditModal(employee)}
+                    className="mr-2"
+                  >
+                    Edit
+                  </Button>
+                  <Button
+                    variant="danger"
+                    onClick={() => deleteEmployee(employee.id)}
+                  >
+                    Delete
+                  </Button>
+                </div>
+              </Col>
+            </Row>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </Col>
+</Row>
+
       <Modal show={showModal} onHide={() => setShowModal(false)}>
   <Modal.Header closeButton>
     <Modal.Title>Edit Employee</Modal.Title>
