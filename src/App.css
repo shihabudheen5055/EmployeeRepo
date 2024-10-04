@@ -44,97 +44,140 @@ body {
   background-color: #121212;
 }
 
+/* General container styles */
 .app-container {
+  background-color: #2c3e50;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding: 20px;
 }
 
+/* Header styles */
 h1 {
-  color: #ffffff;
+  color: #ecf0f1;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
 }
 
-.filter-input,
-.input-field {
-  background-color: #333;
-  color: #fff;
-  border: 1px solid #555;
+/* Form input fields */
+.input-field, .filter-input {
+  padding: 10px;
+  border: 1px solid #34495e;
+  border-radius: 5px;
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  transition: border-color 0.3s ease;
+}
+
+.input-field:focus, .filter-input:focus {
+  border-color: #1abc9c;
+  outline: none;
 }
 
 .add-button {
-  background-color: #007bff;
-  border: none;
+  margin-top: 15px;
+  background-color: #1abc9c;
+  border-color: #16a085;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+}
+
+.add-button:hover {
+  background-color: #16a085;
+}
+
+/* Employee list box */
+.employee-list-box {
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid #34495e;
+  border-radius: 8px;
+  background-color: #34495e;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.employee-header {
+  background-color: #16a085;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 .employee-list {
-  width: 100%;
-  max-width: 800px;
+  margin-top: 10px;
 }
 
 .employee-box {
-  background-color: #333;
-  border: 1px solid #444;
-  color: #fff;
-  padding: 10px;
-  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: #ecf0f1;
+  border: 1px solid #bdc3c7;
   border-radius: 5px;
+  margin-bottom: 10px;
+  transition: transform 0.2s ease-in-out;
 }
 
-.employee-box .btn-warning {
-  background-color: #f0ad4e;
-  border: none;
+.employee-box:hover {
+  transform: translateY(-3px);
+  background-color: #f1f1f1;
 }
 
-.employee-box .btn-danger {
-  background-color: #d9534f;
-  border: none;
-}
-/* Modern button styles */
+/* Button styles inside employee-box */
 .employee-box .btn {
-  border: none;
-  padding: 8px 15px;
-  font-size: 0.9rem;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  border-radius: 30px; /* Rounded buttons */
-  text-transform: uppercase; /* Uppercase text for a modern look */
+  margin-left: 10px;
 }
 
-/* Edit Button Styling */
 .employee-box .btn-warning {
-  background-color: #ffcc00;
-  color: #333;
-  box-shadow: 0 4px 8px rgba(255, 204, 0, 0.3); /* Soft shadow */
+  background-color: #f39c12;
+  border-color: #e67e22;
+  color: white;
 }
 
 .employee-box .btn-warning:hover {
-  background-color: #ffdb4d; /* Lighter yellow on hover */
-  color: #222;
-  box-shadow: 0 6px 12px rgba(255, 204, 0, 0.5); /* Deeper shadow */
-  transform: translateY(-2px); /* Slight lift effect */
+  background-color: #e67e22;
+  border-color: #d35400;
 }
 
-/* Delete Button Styling */
 .employee-box .btn-danger {
-  background-color: #ff4d4d;
+  background-color: #e74c3c;
+  border-color: #c0392b;
   color: white;
-  box-shadow: 0 4px 8px rgba(255, 77, 77, 0.3);
 }
 
 .employee-box .btn-danger:hover {
-  background-color: #ff6666;
-  color: #fff;
-  box-shadow: 0 6px 12px rgba(255, 77, 77, 0.5);
-  transform: translateY(-2px);
+  background-color: #c0392b;
+  border-color: #a93226;
 }
 
-/* Add some spacing between the buttons */
-.ml-2 {
-  margin-left: 10px;
-}
-.modal-dialog {
-  max-width: 90%;
-  margin: 1.75rem auto;
+/* Toast notification styling */
+.toastify-container {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
 }
 
+.text-danger {
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+/* Modal */
+.modal-content {
+  background-color: #ecf0f1;
+  border-radius: 8px;
+}
+
+.modal-header {
+  background-color: #16a085;
+  color: white;
+}
+
+.modal-footer .btn-primary {
+  background-color: #1abc9c;
+  border-color: #16a085;
+}
+
+.modal-footer .btn-primary:hover {
+  background-color: #16a085;
+}
